@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>
+            <h1>Cadastrar Products</h1>
+            
+            <form method="POST" action="/product/{id}">
+                
+                <label>Nome</label>
+                <input type="text" value="" name="nome"><br>
+                
+                <label>Preço</label>
+                <input type="text" value="" name="preco"><br>
+                
+                <label>Desconto</label>
+                <input type="text" value="" name="deconto"><br>
+                
+                <label>Tipo</label>
+                <select name="tp">
+                    <option value="ACOUGUE">Açougue</option>
+                    <option value="FRIOS_LATICINIOS">Frios e laticinios</option>
+                    <option value="BEBIDAS">Bebidas</option>
+                    <option value="HIGIENE_LIMPEZA">Higiene e limpeza</option>
+                    <option value="MERCEARIA">Mercearia</option>
+                    <option value="HORTIFRUTI">Hortifruti</option>
+                </select><br>
+                
+                <button type="submit">Save</button>
+            </form>
+        </div>
+    </body>
+</html>
