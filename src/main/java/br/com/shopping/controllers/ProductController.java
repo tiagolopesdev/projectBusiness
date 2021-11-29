@@ -37,29 +37,22 @@ public class ProductController {
 
     @Autowired
     private CommerceService commerceService;
-    
+
     Commerce c = new Commerce();
+
+    Integer idCommerce;
 
     @RequestMapping(value = "/formProduct/{id}")
     public String getForm(@PathVariable(name = "id") Integer id) {
-        c.setProduct((List<Product>) commerceService.getCommerceById(id));
-//        ModelAndView andView = new ModelAndView("formProduct");
-//        andView.addObject("getCommerce", c.getNome());
+        idCommerce = id;
         return "formProduct";
     }
-    
+
     @RequestMapping(method = RequestMethod.POST)
     public String saveProduct(Product p) {
+        c = commerceService.getCommerceById(idCommerce);
+        c.AddProduct(p);
         productService.save(p);
-        c.getProduct().add(p);
-        return "formProduct";
+        return "redirect:/commerce";
     }
-    
-//    @GetMapping
-//    public ModelAndView searchCommerces() {
-//        List<Commerce> allCommerces = (List<Commerce>) commerceRepository.findAll();
-//        ModelAndView mav = new ModelAndView("getCommerces");
-//        mav.addObject("commerces", allCommerces);
-//        return mav;
-//    }
 }
