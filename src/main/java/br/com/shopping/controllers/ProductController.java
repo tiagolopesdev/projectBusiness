@@ -55,4 +55,20 @@ public class ProductController {
         productService.save(p);
         return "redirect:/commerce";
     }
+    
+    @RequestMapping("/getAllProductsByCommerce")
+    public ModelAndView getAllProducts(){
+        List<Product> allProducts = (List<Product>) productService.findAllProducts();
+        ModelAndView mav = new ModelAndView("getProducts");
+        mav.addObject("products", allProducts);
+        return mav;
+    }
+    
+//        @GetMapping
+//    public ModelAndView searchCommerces() {
+//        List<Commerce> allCommerces = (List<Commerce>) commerceRepository.findAll();
+//        ModelAndView mav = new ModelAndView("getCommerces");
+//        mav.addObject("commerces", allCommerces);
+//        return mav;
+//    }
 }

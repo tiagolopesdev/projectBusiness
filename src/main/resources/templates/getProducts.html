@@ -12,28 +12,28 @@ and open the template in the editor.
     </head>
     <body>
         <div>
-            <h1>Comercios</h1>
+            <h1>Produtos</h1>
             <table border="1">
                 <thead>
                     <tr>
                         <th>Id</th>
-                        <th>Cnpj</th>
                         <th>Nome</th>
-                        <th>Acction</th>
-                        <th>Acction</th>
+                        <th>Preço</th>
+                        <th>Desconto</th>
+                        <th>Tipo</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr th:each="commerce : ${commerces}">
-                        <td th:text="${commerce.id}"></td>
-                        <td th:text="${commerce.cnpj}"></td>
-                        <td th:text="${commerce.nome}"></td>
-                        <td><a th:href="@{'/product/formProduct/' + ${commerce.id}}">Insert Products</a></td>
-                        <td><a th:href="@{'/product/getAllProductsByCommerce'}">List Products</a></td>
+                    <tr th:each="product : ${products}">
+                        <td th:text="${product.codigo}"></td>
+                        <td th:text="${product.desconto}"></td>
+                        <td th:text="${product.nome}"></td>
+                        <td th:text="${product.preco}"></td>
+                        <td th:text="${product.tp}"></td>
+                        <!--<td><a th:href="@{'/product/formProduct/' + ${commerce.id}}">Insert Products</a></td>-->
                     </tr>
                 </tbody>
             </table>
-
         </div>
     </body>
 </html>
