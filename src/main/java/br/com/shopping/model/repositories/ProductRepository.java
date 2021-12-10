@@ -6,12 +6,13 @@
 package br.com.shopping.model.repositories;
 
 import br.com.shopping.model.entities.Product;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.CrudRepository;
 
 /**
  *
  * @author tiago
  */
-public interface ProductRepository extends CrudRepository<Product, Integer>{
+public interface ProductRepository extends JpaRepository<Product, Integer>{
     
 }
