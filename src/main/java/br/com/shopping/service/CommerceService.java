@@ -7,6 +7,7 @@ package br.com.shopping.service;
 
 import br.com.shopping.model.entities.Commerce;
 import br.com.shopping.model.repositories.CommerceRepository;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,4 +29,8 @@ public class CommerceService {
         return commerceRepository.findAll();
     }
     
+//    public List<Commerce> getAllProductsByCommerce(Integer id){
+//        return commerceRepository.getAllProductsbyCommerce(id);
+//    }
+//    
 }

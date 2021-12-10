@@ -58,9 +58,13 @@ public class ProductController {
     
     @RequestMapping("/getAllProductsByCommerce")
     public ModelAndView getAllProducts(){
-        List<Product> allProducts = (List<Product>) productService.findAllProducts();
+        List<Product> allProducts = (List<Product>) 
+                productService.getAllProductsByCommerce(idCommerce);
         ModelAndView mav = new ModelAndView("getProducts");
         mav.addObject("products", allProducts);
+        for (Product allProduct : allProducts) {
+            System.out.println(allProduct.getNome()+" com preço de "+allProduct.getPreco());
+        }
         return mav;
     }
     
