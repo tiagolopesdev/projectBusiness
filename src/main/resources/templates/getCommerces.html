@@ -29,7 +29,7 @@ and open the template in the editor.
                         <td th:text="${commerce.cnpj}"></td>
                         <td th:text="${commerce.nome}"></td>
                         <td><a th:href="@{'/product/formProduct/' + ${commerce.id}}">Insert Products</a></td>
-                        <td><a th:href="@{'/product/getAllProductsByCommerce'}">List Products</a></td>
+                        <td><a th:href="@{'/product/getAllProductsByCommerce/'+${commerce.id}}">List Products</a></td>
                     </tr>
                 </tbody>
             </table>

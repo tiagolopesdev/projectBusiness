@@ -7,21 +7,16 @@ package br.com.shopping.controllers;
 
 import br.com.shopping.model.entities.Commerce;
 import br.com.shopping.model.entities.Product;
-import br.com.shopping.model.repositories.ProductRepository;
 import br.com.shopping.service.CommerceService;
 import br.com.shopping.service.ProductService;
+
 import java.util.List;
-import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -56,23 +51,14 @@ public class ProductController {
         return "redirect:/commerce";
     }
     
-    @RequestMapping("/getAllProductsByCommerce")
-    public ModelAndView getAllProducts(){
-        List<Product> allProducts = (List<Product>) 
-                productService.getAllProductsByCommerce(idCommerce);
+    @RequestMapping("/getAllProductsByCommerce/{idCommerce}")
+    public ModelAndView getAllProducts(@PathVariable("idCommerce") Integer codigo){
+        idCommerce = codigo;
+        List<Product> allProducts = (List<Product>) productService.
+                getAllProductsByCommerce(idCommerce);
         ModelAndView mav = new ModelAndView("getProducts");
         mav.addObject("products", allProducts);
-        for (Product allProduct : allProducts) {
-            System.out.println(allProduct.getNome()+" com preço de "+allProduct.getPreco());
-        }
         return mav;
     }
-    
-//        @GetMapping
-//    public ModelAndView searchCommerces() {
-//        List<Commerce> allCommerces = (List<Commerce>) commerceRepository.findAll();
-//        ModelAndView mav = new ModelAndView("getCommerces");
-//        mav.addObject("commerces", allCommerces);
-//        return mav;
-//    }
+
 }

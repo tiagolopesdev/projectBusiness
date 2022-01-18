@@ -18,9 +18,5 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface CommerceRepository extends JpaRepository<Commerce, Integer>{
-    
-//    @Query("SELECT c FROM Commerce c "
-//            + "JOIN c.product p"
-//            + "WHERE p.id = :id")
-//    public List<Commerce> getAllProductsbyCommerce(Integer id);
+
 }

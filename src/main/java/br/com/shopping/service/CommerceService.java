@@ -28,9 +28,5 @@ public class CommerceService {
     public Iterable<Commerce> getAllCommerces(){
         return commerceRepository.findAll();
     }
-    
-//    public List<Commerce> getAllProductsByCommerce(Integer id){
-//        return commerceRepository.getAllProductsbyCommerce(id);
-//    }
-//    
+
 }
